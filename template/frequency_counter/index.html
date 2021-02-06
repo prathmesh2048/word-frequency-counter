@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{%load crispy_forms_tags %} 
+{% block content %}
+
+<br>
+<br>
+
+<br>
+<div class="col-md-6 mx-auto">
+    <div class="container-fluid">
+        <h2 class="text-center">Find The Most Frequent Word On Any Web Page !</h2>
+        <p></p>
+        <form action="{% url 'results' %}" method="POST">
+            {% csrf_token %}
+            
+            {{ form|crispy }}
+           
+            <p></p>
+        <button type="submit" class="btn btn-info" >Get Results</button>
+        </form>
+        
+    </div>
+</div>
+
+
+
+{% endblock content %}

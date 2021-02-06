@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+
+<br>
+<br>
+
+
+<div class="col-md-5 mx-auto">
+<div class="container-fluid">
+<h5 class="text-center">  {{ note }}</h5>
+<br>
+<h6 class="text-center">Common English words are excluded -: the ,be ,to ,of ,and ,a ,in ,that ,have ,is ,it ,for ,not ,on ,with ,he ,as ,you ,do ,at ,this ,but ,his ,by ,from ,they ,are ,can ,her ,she , </h6>
+<br>
+{% if resp == '' %}
+<br>
+<h1 class="text-center">Sorry no results found !</h1>
+{% else %}
+<table class="table table-bordered border border-dark border-2 table-striped">
+    <tr class="table-dark">
+        <th >Word</th>
+        <th>Frequency</th>
+      </tr>
+
+
+  
+      {% for data in resp %}
+    <tr>
+        <td>{{ data.word }}</td> 
+      <td>{{ data.frequency }}</td>
+           
+    </tr>
+    {% endfor %}
+  </table>
+      {% endif %}
+  <br>
+  <div class="text-center">
+    <a href="{% url 'index' %}" class=" btn btn-success">Go Back</a>
+  </div>
+</div>
+</div>
+{% endblock content %}
